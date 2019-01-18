@@ -7,7 +7,7 @@ import java.util.TreeSet;
  */
 public class Empresa {
     
-        private String nombre;
+    private String nombre;
     private TreeSet<Colaborador> colaboradores;
 
     public Empresa(String nombre) {

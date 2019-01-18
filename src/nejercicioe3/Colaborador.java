@@ -3,7 +3,7 @@ package nejercicioe3;
  *
  * @author Pato-Note
  */
-public class Colaborador {
+public class Colaborador implements Comparable<Colaborador> {
     
     private String nombre;
     private int sueldo;
@@ -32,6 +32,14 @@ public class Colaborador {
     @Override
     public String toString(){
         return("Nombre: "+this.getNombre()+"\nSueldo: $"+this.getSueldo()+"\n");
+    }
+
+    @Override
+    public int compareTo(Colaborador t) {
+        if(this.getNombre().compareToIgnoreCase(t.getNombre())==0){
+            return this.getSueldo()-t.getSueldo();
+        } 
+        return this.getNombre().compareToIgnoreCase(t.getNombre());
     }
     
 }
