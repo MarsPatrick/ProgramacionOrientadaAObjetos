@@ -76,8 +76,10 @@ public class Empresa {
     
     public int totalColaboradoresNombreComienzaCon(char letra){
         int x=0;
+        char a = Character.toLowerCase(letra);
         for(Colaborador algo: colaboradores){
-            if(algo.getNombre().charAt(0)==letra){
+            char b = Character.toLowerCase(algo.getNombre().charAt(0));
+            if(b==a){
                 x++;
             }
         }

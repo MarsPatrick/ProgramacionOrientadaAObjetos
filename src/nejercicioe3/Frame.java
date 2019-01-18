@@ -57,11 +57,9 @@ public class Frame extends javax.swing.JFrame {
         jButton6 = new javax.swing.JButton();
         jLabel13 = new javax.swing.JLabel();
         jPanel7 = new javax.swing.JPanel();
-        jTextField7 = new javax.swing.JTextField();
         jButton7 = new javax.swing.JButton();
         jLabel14 = new javax.swing.JLabel();
         jPanel8 = new javax.swing.JPanel();
-        jTextField8 = new javax.swing.JTextField();
         jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -163,6 +161,11 @@ public class Frame extends javax.swing.JFrame {
 
         jButton3.setText("Mostrar Lista");
         jButton3.setEnabled(false);
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         buttonGroup2.add(jRadioButton3);
         jRadioButton3.setText("Todos");
@@ -202,9 +205,19 @@ public class Frame extends javax.swing.JFrame {
         jPanel6.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
         jTextField3.setEnabled(false);
+        jTextField3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                jTextField3KeyTyped(evt);
+            }
+        });
 
         jButton4.setText("Mostrar");
         jButton4.setEnabled(false);
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         jLabel5.setText("Letra");
 
@@ -256,6 +269,11 @@ public class Frame extends javax.swing.JFrame {
 
         jButton5.setText("Ejecutar");
         jButton5.setEnabled(false);
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -311,6 +329,11 @@ public class Frame extends javax.swing.JFrame {
 
         jButton6.setText("Eliminar");
         jButton6.setEnabled(false);
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
@@ -344,28 +367,28 @@ public class Frame extends javax.swing.JFrame {
 
         jPanel7.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jTextField7.setEnabled(false);
-
         jButton7.setText("Mostrar");
         jButton7.setEnabled(false);
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
-                .addComponent(jTextField7)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(39, 39, 39)
                 .addComponent(jButton7)
-                .addGap(2, 2, 2))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton7))
+                .addComponent(jButton7)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -373,28 +396,28 @@ public class Frame extends javax.swing.JFrame {
 
         jPanel8.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
-        jTextField8.setEnabled(false);
-
         jButton8.setText("Mostrar");
         jButton8.setEnabled(false);
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
         jPanel8.setLayout(jPanel8Layout);
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addComponent(jTextField8, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(44, 44, 44)
                 .addComponent(jButton8)
-                .addGap(2, 2, 2))
+                .addContainerGap(45, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton8))
+                .addComponent(jButton8)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -493,7 +516,6 @@ public class Frame extends javax.swing.JFrame {
             if(x==0){
                 JOptionPane.showMessageDialog(null, "Has creado la empresa: "+jTextField1.getText()+"\nSe desbloqueara la siguiente opcion","Viva",JOptionPane.CLOSED_OPTION);
                 jTextField2.setEnabled(true);
-                jButton2.setEnabled(true);
                 em = new Empresa(jTextField1.getText());
                 jTextField1.setEnabled(false);
                 jButton1.setEnabled(false);
@@ -507,26 +529,30 @@ public class Frame extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if(jTextField2.getText().length()>2){
+            String[] a = jTextField2.getText().split(" ");
+            if(a.length==1){
+                JOptionPane.showMessageDialog(null, "No has agregado todo","Error",JOptionPane.ERROR_MESSAGE);
+                jTextField2.setText("");
+                return;
+            }
             int x=JOptionPane.showConfirmDialog(null, "¿Desea agregar al colaborador: "+jTextField2.getText()+"?","Agregando colaborador",JOptionPane.YES_NO_OPTION);
             if(x==0){
-                jTextField3.setEnabled(true);
-                jTextField4.setEnabled(true);
-                jTextField5.setEnabled(true);
-                jTextField6.setEnabled(true);
-                jTextField7.setEnabled(true);
-                jButton3.setEnabled(true);
-                jButton4.setEnabled(true);
-                jButton5.setEnabled(true);
-                jButton6.setEnabled(true);
-                jButton7.setEnabled(true);
-                jRadioButton1.setEnabled(true);
-                jRadioButton2.setEnabled(true);
-                jRadioButton3.setEnabled(true);
-                jRadioButton4.setEnabled(true); 
-                String[]a = jTextField2.getText().split(" ");
                 Colaborador d = new Colaborador(a[0],Integer.parseInt(a[1]));
                 if(em.agregarColaborador(d)){
                     if(y==0){
+                        jTextField3.setEnabled(true);
+                        jTextField4.setEnabled(true);
+                        jTextField5.setEnabled(true);
+                        jTextField6.setEnabled(true);
+                        jButton3.setEnabled(true);
+                        jButton4.setEnabled(true);
+                        jButton5.setEnabled(true);
+                        jButton6.setEnabled(true);
+                        jButton7.setEnabled(true);
+                        jRadioButton1.setEnabled(true);
+                        jRadioButton2.setEnabled(true);
+                        jRadioButton3.setEnabled(true);
+                        jRadioButton4.setEnabled(true);
                         JOptionPane.showMessageDialog(null, "Has agregado el colaborador: "+jTextField2.getText()+"\nSe desbloquearan las siguientes opciones","Viva",JOptionPane.CLOSED_OPTION);
                         y++;
                     }else{
@@ -534,7 +560,7 @@ public class Frame extends javax.swing.JFrame {
                             JOptionPane.showMessageDialog(null, "Has agregado el colaborador: "+jTextField2.getText()+"\nSe desbloqueo la diferencia de sueldo","Viva",JOptionPane.CLOSED_OPTION);
                             y++;
                         }else{
-                            JOptionPane.showMessageDialog(null, "Has agregado el colaborador: "+jTextField2.getText(),"Viva",JOptionPane.CLOSED_OPTION);    
+                            JOptionPane.showMessageDialog(null, "Has agregado el colaborador: "+jTextField2.getText(),"Viva",JOptionPane.CLOSED_OPTION);
                         }
                     }
                 }else{
@@ -547,17 +573,89 @@ public class Frame extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Nombre muy corto",":'c",JOptionPane.OK_OPTION);
         }
         if(y==2){
-            jTextField8.setEnabled(true);
             jButton8.setEnabled(true);
         }
+        jTextField2.setText("");
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
         if(z==0){
             jTextField2.setText("");
+            jButton2.setEnabled(true);
             z++;
         }
     }//GEN-LAST:event_jTextField2KeyPressed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        if(jRadioButton3.isSelected()){
+            JOptionPane.showMessageDialog(null, em.toString() ,"Todos en "+ em.getNombre(),JOptionPane.DEFAULT_OPTION);
+            return;
+        }
+        if(jRadioButton4.isSelected()){
+            //agregar JOptionPane cuando se cree el metodo de mostrar lista de mayor sueldo
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Elige una opcion",":'c",JOptionPane.OK_OPTION);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        if(jTextField3.getText().isEmpty()){
+            JOptionPane.showMessageDialog(null, "Agrega un caracter","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        char a=jTextField3.getText().charAt(0);
+        JOptionPane.showMessageDialog(null, "Hay un total de "+em.totalColaboradoresNombreComienzaCon(a)+" colaboradores que empiezan con "+a,"Empiezan con",JOptionPane.DEFAULT_OPTION);
+        jTextField3.setText("");
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jTextField3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField3KeyTyped
+        if(jTextField3.getText().length()==1)
+            evt.consume();
+    }//GEN-LAST:event_jTextField3KeyTyped
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        if(jTextField4.getText().length()==0 || jTextField5.getText().length()==0){
+            JOptionPane.showMessageDialog(null, "Espacios incompletos","Error",JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+        int a = Integer.parseInt(jTextField4.getText());
+        int b = Integer.parseInt(jTextField5.getText());
+        if(jRadioButton1.isSelected()){
+            int c = em.totalColaboradoresRangoSueldo(a,b);
+            JOptionPane.showMessageDialog(null,"El total de colaboradores en el rango es: "+c,"Total colaboradores entre "+a+"-"+b,JOptionPane.DEFAULT_OPTION);
+            jTextField4.setText("");
+            jTextField5.setText("");
+            return;
+        }
+        if(jRadioButton2.isSelected()){
+            int c = em.desvincularPorRangoSueldo(a, b);
+            JOptionPane.showMessageDialog(null,"El total de colaboradores eliminados en el rango es: "+c,"Eliminar colaboradores entre "+a+"-"+b,JOptionPane.DEFAULT_OPTION);
+            jTextField4.setText("");
+            jTextField5.setText("");
+            return;
+        }
+        JOptionPane.showMessageDialog(null, "Elige una opcion",":'c",JOptionPane.OK_OPTION);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        JOptionPane.showMessageDialog(null, "El total de sueldos es: $"+em.totalSueldos(),"Total sueldos de "+em.getNombre()+" con "+em.getColaboradores().size()+" colaboradores",JOptionPane.DEFAULT_OPTION);
+    }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+        //JOptionPane con la diferencia del mayor y menor
+    }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        if(jTextField6.getText().length()<3){
+            JOptionPane.showMessageDialog(null, "Nombre muy corto",":'c",JOptionPane.OK_OPTION);
+            return;
+        }
+        if(em.desvincularColaborador(jTextField6.getText())){
+            //JOptionPane desvinculado correctamente
+        }else{
+            //JOptionPane desvinculado incorrectamente
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     public static void main(String args[]) {
 
@@ -611,7 +709,5 @@ public class Frame extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }

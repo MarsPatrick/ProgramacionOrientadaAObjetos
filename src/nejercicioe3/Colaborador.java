@@ -31,7 +31,7 @@ public class Colaborador implements Comparable<Colaborador> {
     
     @Override
     public String toString(){
-        return("Nombre: "+this.getNombre()+"\nSueldo: $"+this.getSueldo()+"\n");
+        return("Nombre: "+this.getNombre()+" Sueldo: $"+this.getSueldo()+"\n");
     }
 
     @Override
