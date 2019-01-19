@@ -1,7 +1,6 @@
 package nejercicioe3;
-
+import java.util.ArrayList;
 import javax.swing.JOptionPane;
-
 /**
  *
  * @author Pato-Note
@@ -13,6 +12,7 @@ public class Frame extends javax.swing.JFrame {
     }
     
     public Empresa em;
+    public ArrayList<Colaborador> sueldos;
     public int y=0,z=0;
     
     @SuppressWarnings("unchecked")
@@ -576,6 +576,7 @@ public class Frame extends javax.swing.JFrame {
             jButton8.setEnabled(true);
         }
         jTextField2.setText("");
+        sueldos = new ArrayList(em.getColaboradores());
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTextField2KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField2KeyPressed
@@ -592,7 +593,17 @@ public class Frame extends javax.swing.JFrame {
             return;
         }
         if(jRadioButton4.isSelected()){
-            //agregar JOptionPane cuando se cree el metodo de mostrar lista de mayor sueldo
+            int mayor=0;
+            for(Colaborador algo:em.getColaboradores()){
+                if(mayor<algo.getSueldo())
+                    mayor=algo.getSueldo();
+            }
+            ArrayList<Colaborador> col = new ArrayList();
+            for(Colaborador algo:em.getColaboradores()){
+                if(mayor==algo.getSueldo())
+                    col.add(algo);
+            }
+            JOptionPane.showMessageDialog(null, col);
             return;
         }
         JOptionPane.showMessageDialog(null, "Elige una opcion",":'c",JOptionPane.OK_OPTION);
@@ -628,6 +639,10 @@ public class Frame extends javax.swing.JFrame {
             return;
         }
         if(jRadioButton2.isSelected()){
+            if(em.getColaboradores().isEmpty()){
+                JOptionPane.showMessageDialog(null, "Ya eliminaste a todos","Error",JOptionPane.ERROR_MESSAGE);
+                return;
+            }
             int c = em.desvincularPorRangoSueldo(a, b);
             JOptionPane.showMessageDialog(null,"El total de colaboradores eliminados en el rango es: "+c,"Eliminar colaboradores entre "+a+"-"+b,JOptionPane.DEFAULT_OPTION);
             jTextField4.setText("");
@@ -642,7 +657,16 @@ public class Frame extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton7ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
-        //JOptionPane con la diferencia del mayor y menor
+        int mayor=0,menor=999999999;
+        for(Colaborador algo : em.getColaboradores()){
+            if(algo.getSueldo()>mayor){
+                mayor=algo.getSueldo();
+            }
+            if(algo.getSueldo()<menor){
+                menor=algo.getSueldo();
+            }
+        }
+        JOptionPane.showMessageDialog(null, "La diferencia es de: "+(mayor-menor),"Diferencia de "+mayor+" y de "+menor,JOptionPane.DEFAULT_OPTION);
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
