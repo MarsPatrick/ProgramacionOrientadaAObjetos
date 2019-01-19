@@ -675,9 +675,9 @@ public class Frame extends javax.swing.JFrame {
             return;
         }
         if(em.desvincularColaborador(jTextField6.getText())){
-            //JOptionPane desvinculado correctamente
+            JOptionPane.showMessageDialog(null, "Desvinculado correctamente");
         }else{
-            //JOptionPane desvinculado incorrectamente
+            JOptionPane.showMessageDialog(null, "No se pudo desvincular");
         }
     }//GEN-LAST:event_jButton6ActionPerformed
 
