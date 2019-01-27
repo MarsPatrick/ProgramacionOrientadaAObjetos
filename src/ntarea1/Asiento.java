@@ -35,14 +35,14 @@ public class Asiento {
     
     
     public boolean isLibre(){
-        
+        return libre;
     }
     
     public void setLibre(boolean libre){
-        
+        this.libre= libre;
     }
     
     public String mostrarDatos(){
-        
+        return "Asiento: ("+this.getFila()+","+this.getColumna()+")"+"\nDisponibilidad: "+this.isLibre();
     }
 }
