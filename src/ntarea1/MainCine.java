@@ -82,13 +82,27 @@ public class MainCine {
                         for(int i=0;i<x;i++){
                             System.out.println("\nEliga asientos");
                             System.out.println(c.buscaSalaPorNombre(y).mostrarOcupacion());
+                            System.out.println("\nIngrese asiento(ejemplo a2): ");
+                            String a=t.next();
+                            Asiento as = new Asiento(a.charAt(0),(byte)Integer.parseInt(a.substring(1)));
+                            if(c.venderAsiento(c.buscaSalaPorNombre(a), as)){
+                                System.out.println("\nVenta exitosa");
+                            }else{
+                                System.out.println("\nHa ocurrido un error, intente nuevamente");
+                                i--;
+                            };
                         }
                         break;
                     case 3:
                         System.out.println("\nUsted a elegido ver ocupacion de salas");
+                        for(Sala algo: c.getSalas()){
+                            System.out.println("\nSala: "+algo.getNombre());
+                            System.out.println(algo.mostrarDatos());;
+                        }
                         break;
                     case 4:
                         System.out.println("\nUsted a elegido ver ocupacion de sala por rango de filas");
+                        System.out.println("Ingrese sala");
                         break;
                     case 5:
                         System.out.println("\nUsted a elegido obtener informe de recaudacion");
@@ -110,7 +124,12 @@ public class MainCine {
         }
     }
     
-    /*public static boolean validaAsiento(Sala s, String a){
-        
-    }*/
+    public static boolean validaAsiento(Sala s, String a){
+        if(a.toLowerCase().charAt(0)<=(s.getTotalColumnas()+95)){
+            if(Integer.parseInt(a.substring(1))<=s.getTotalFilas()){
+                return true;
+            }
+        }
+        return false;
+    }
 }
