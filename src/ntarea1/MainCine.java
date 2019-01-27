@@ -9,7 +9,7 @@ public class MainCine {
     public static void main(String[] args) {
         Scanner t = new Scanner(System.in);
         boolean salir = false;
-        int opcion,x,con,cinecreado=0;
+        int opcion,x=0,con,cinecreado=0;
         String y;
         Cine c = new Cine("");
         
@@ -31,21 +31,29 @@ public class MainCine {
                         System.out.println("\nUsted a elegido crear cine");
                         System.out.println("ingrese nombre del cine");
                         c.setNombre(t.next());
-                        System.out.println("Ingrese cantidad de salas");
-                        x=t.nextInt();
-                        for(con=0;con<=x;con++){
+                        while(x<=0){
+                            System.out.println("Ingrese cantidad de salas");
+                            x=t.nextInt();
+                        }
+                        for(con=0;con<x;con++){
                             String nom;
-                            byte fil,col;
-                            short val;
+                            byte fil=0,col=0;
+                            short val=0;
                             System.out.println("Sala "+(con+1));
                             System.out.println("Ingrese nombre");
                             nom=t.next();
-                            System.out.println("Ingrese cantidad de filas");
-                            fil=t.nextByte();
-                            System.out.println("Ingrese cantidad de columnas");
-                            col=t.nextByte();
-                            System.out.println("Ingrese valor de la entrada");
-                            val=t.nextShort();
+                            while(fil<3 || fil>15){
+                                System.out.println("Ingrese cantidad de filas");
+                                fil=t.nextByte();
+                            }
+                            while(col<5 || col>12){
+                                System.out.println("Ingrese cantidad de columnas");
+                                col=t.nextByte();
+                            }
+                            while(val<1000){
+                                System.out.println("Ingrese valor de la entrada");
+                                val=t.nextShort();
+                            }
                             Asiento asiento[][]= null;
                             for(int j=0;j<fil;j++){
                                 char a=(char) ('a'+j);
@@ -57,7 +65,7 @@ public class MainCine {
                             }             
                             Sala s = new Sala(nom,fil,asiento,col,val);    
                             if(c.agregarSala(s)==true)
-                            System.out.println("Felicidades sala "+con+"completa");          
+                            System.out.println("Felicidades sala "+(con+1)+" completa");          
                         };
                         cinecreado=1;
                         break;
@@ -74,11 +82,14 @@ public class MainCine {
                         System.out.println("\nCine ya fue creado");
                         break;
                     case 2:
+                        x=0;
                         System.out.println("\nUsted a elegido vender entradas");
-                        System.out.println("Ingrese cantidad de entradas:");
-                        x = t.nextInt();
+                        while(x<=0){
+                            System.out.println("Ingrese cantidad de entradas:");
+                            x=t.nextInt();
+                        }
                         System.out.println("Ingrese Sala:");
-                        y = t.next();
+                        y=t.next();
                         for(int i=0;i<x;i++){
                             System.out.println("\nEliga asientos");
                             System.out.println(c.buscaSalaPorNombre(y).mostrarOcupacion());
