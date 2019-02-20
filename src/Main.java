@@ -67,13 +67,53 @@ public class Main {
                 }
             }
         }
-        System.out.println("Colaboradores:");
+        System.out.println(em.obtenerListaColaboradores());
+        System.out.println("Lista de colaboradores por rango");
+        int min=0;
+        while(min<288000){
+            System.out.println("Ingrese minimo");
+            min=tc.nextInt();
+        }
+        int max=0;
+        while(max<min){
+            System.out.println("Ingrese maximo");
+            max=tc.nextInt();
+        }
         for(int c=0;c<em.getColaboradores().size();c++){
             Colaborador co=em.getColaboradores().get(c);
-            String a=co.getRut().substring(0, co.getRut().length()-1);
-            String b=co.getRut().substring(co.getRut().length()-1);
-            System.out.println("Rut: "+a+"-"+b+" Nombre: "+co.getNombre()+" Edad: "+co.getEdad()+" Sueldo: "+co.getSueldo());
+            if(co.getSueldo()>=min){
+                if(co.getSueldo()<=max){
+                    String a=co.getRut().substring(0, co.getRut().length()-1);
+                    String b=co.getRut().substring(co.getRut().length()-1);
+                    System.out.println("Rut: "+a+"-"+b+" Nombre: "+co.getNombre()+" Edad: "+co.getEdad()+" Sueldo: "+co.getSueldo());
+                }
+            }
         }
-        System.out.println("Lista de colaboradores por rango");
+        /*boolean vrut=false;
+        String rut="";
+        while(vrut==false){
+            System.out.println("Ingrese rut del colaborador");
+            rut=tc.nextLine();
+            if(rut.length()==8||rut.length()==9){
+                vrut=true;
+            }
+        }
+        if(em.buscarPorRut(rut)){
+            for(Colaborador uno:em.getColaboradores()){
+                if(uno.getRut().equalsIgnoreCase(rut))
+                    em.desvincular(uno);
+            }
+            System.out.println("Colaborador despedido");
+        }else{
+            System.out.println("No existe el colaborador o ya fue despedido");
+        }
+        System.out.println(em.obtenerListaColaboradores());*/
+        byte ed=-1;
+        while(ed<0){
+            System.out.println("Ingrese edad");
+            ed=tc.nextByte();
+        }
+        em.desvincular(ed);
+        System.out.println(em.obtenerListaColaboradores());
     }
 }
