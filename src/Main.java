@@ -4,12 +4,12 @@ public class Main {
     public static void main(String args[]){
         Scanner tc = new Scanner(System.in);
         Empresa em = new Empresa();
+        
+        //Leer desde teclado los datos de la empresa
         System.out.println("Ingrese los datos para crear una empresa");
-        String ne="";
-        while(ne.length()<5){
-            System.out.println("Ingrese nombre de la empresa: ");
-            ne=tc.nextLine();
-        }
+        String ne=verificaString("Ingrese nombre de la empresa: ",5);
+        
+        //Crear la empresa
         boolean crear=false;
         while(crear==false){
             System.out.println("Desea crear empresa (Si|No)");
@@ -22,43 +22,23 @@ public class Main {
                 return;
             }
         }
-        byte cc=0;
-        while(cc<1){
-            System.out.println("Ingrese cantidad de colaboradores que tendra la empresa");
-            cc=tc.nextByte();
-        }
+        
+        //Leer desde teclado un número que representa la cantidad de colaboradores que tendrá la empresa.
+        byte cc=(byte)verificaNumero("Ingrese numero de colaboradores",1);
+        
         //Agregar algo para que el enter no salte al ingresar rut para que no se repita la linea
+        //Leer desde teclado los datos de los colaboradores que se desea agregar a la empresa.
         for(int c=0;c<(int)cc;c++){
             System.out.println("Ingresar datos colaborador N"+(c+1)+":");
-            boolean vrut=false;
-            String rut="";
-            while(vrut==false){
-                System.out.println("Ingrese rut del colaborador");
-                rut=tc.nextLine();
-                if(rut.length()==8||rut.length()==9){
-                    vrut=true;
-                }
-            }
+            String rut=verificaString("Ingrese rut colaborador");
             if(em.buscarPorRut(rut)){
                 System.out.println("Colaborador ya existe");
                 c--;
             }else{
-                String no="";
-                while(no.length()<3){
-                    System.out.println("Ingrese nombre colaborador");
-                    no=tc.nextLine();
-                }
-                byte ed=-1;
-                while(ed<0){
-                    System.out.println("Ingrese edad colaborador");
-                    ed=tc.nextByte();
-                }
-                int su=0;
-                while(su<288000){
-                    System.out.println("Ingrese sueldo colaborador");
-                    su=tc.nextInt();
-                }
-                Colaborador col= new Colaborador(rut,no,ed,su);
+                String nc=verificaString("Ingrese nombre del colaborador",3);
+                byte ed=(byte)verificaNumero("Ingrese edad del colaborador",0);
+                int su=verificaNumero("Ingrese sueldo del colaborador",288000);
+                Colaborador col= new Colaborador(rut,nc,ed,su);
                 if(em.incorporarColaborador(col)){
                     System.out.println("Colaborador agregado");
                 }else{
@@ -67,18 +47,14 @@ public class Main {
                 }
             }
         }
+        
+        //Mostrar la lista de colaboradores que hay en la empresa
         System.out.println(em.obtenerListaColaboradores());
+        
+        //Mostrar la lista de colaboradores cuyo rango de sueldo esta dentro de los limites ingresados por teclado
         System.out.println("Lista de colaboradores por rango");
-        int min=0;
-        while(min<288000){
-            System.out.println("Ingrese minimo");
-            min=tc.nextInt();
-        }
-        int max=0;
-        while(max<min){
-            System.out.println("Ingrese maximo");
-            max=tc.nextInt();
-        }
+        int min=verificaNumero("Ingrese minimo",288000);
+        int max=verificaNumero("Ingrese maximo",min);
         for(int c=0;c<em.getColaboradores().size();c++){
             Colaborador co=em.getColaboradores().get(c);
             if(co.getSueldo()>=min){
@@ -89,15 +65,10 @@ public class Main {
                 }
             }
         }
-        /*boolean vrut=false;
-        String rut="";
-        while(vrut==false){
-            System.out.println("Ingrese rut del colaborador");
-            rut=tc.nextLine();
-            if(rut.length()==8||rut.length()==9){
-                vrut=true;
-            }
-        }
+        
+        //Leer un rut desde teclado e intentar desvincular al colaborador
+        /*
+        String rut=verificaString("Ingrese rut a desvincular");
         if(em.buscarPorRut(rut)){
             for(Colaborador uno:em.getColaboradores()){
                 if(uno.getRut().equalsIgnoreCase(rut))
@@ -106,14 +77,50 @@ public class Main {
             System.out.println("Colaborador despedido");
         }else{
             System.out.println("No existe el colaborador o ya fue despedido");
-        }
-        System.out.println(em.obtenerListaColaboradores());*/
-        byte ed=-1;
-        while(ed<0){
-            System.out.println("Ingrese edad");
-            ed=tc.nextByte();
-        }
+        }*/
+        
+        //Mostrar la lista para verificar que se desvinculo
+        System.out.println(em.obtenerListaColaboradores());
+        
+        //Leer desde teclado un limite de edad y desvincular mediante el motodo
+        byte ed=(byte)verificaNumero("Ingrese edad limite",-1);
         em.desvincular(ed);
+        
+        //Mostrar la lista para verificar la desvinculacion
         System.out.println(em.obtenerListaColaboradores());
     }
+    
+    public static String verificaString(String palabras,int largo){
+        Scanner tc=new Scanner(System.in);
+        String x="";
+        while(x.length()<largo){
+            System.out.println(palabras);
+            x=tc.nextLine();
+        }
+        return x;
+    }
+    
+    public static String verificaString(String palabras){
+        Scanner tc=new Scanner(System.in);
+        boolean vrut=false;
+        String x="";
+        while(vrut==false){
+            System.out.println(palabras);
+            x=tc.nextLine();
+            if(x.length()==8||x.length()==9)
+                vrut=true;
+        }
+        return x;
+    }
+    
+    public static int verificaNumero(String palabras,int limite){
+        Scanner tc=new Scanner(System.in);
+        int x=-1;
+        while(x<limite){
+            System.out.println(palabras);
+            x=tc.nextInt();
+        }
+        return x;
+    }
+    
 }
