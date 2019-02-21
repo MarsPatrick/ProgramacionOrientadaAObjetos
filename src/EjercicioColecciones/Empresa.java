@@ -1,4 +1,7 @@
+package EjercicioColecciones;
+
 import java.util.ArrayList;
+import java.util.Iterator;
 public class Empresa {
     
     private String nombre;
@@ -45,23 +48,25 @@ public class Empresa {
     }
     
     public boolean desvincular(Colaborador despedido){
-        int x=0;
         if(this.buscarPorRut(despedido.getRut())){
             for(int i=0;i<this.getColaboradores().size();i++){
-                if(this.getColaboradores().get(i).getRut().equalsIgnoreCase(despedido.getRut()))
-                    x=i;
+                if(this.getColaboradores().get(i).getRut().equalsIgnoreCase(despedido.getRut())){
+                    this.colaboradores.remove(i);
+                    return true;
+                }
             }
-            this.getColaboradores().remove(x);
-            return true;
+            
         }
         return false;
     }
     
     public int desvincular(byte limiteEdad){
         int i=0;
-        for(int c=0;c<this.getColaboradores().size();c++){
-            if(this.getColaboradores().get(c).getEdad()<limiteEdad){
-                this.desvincular(this.getColaboradores().get(c));
+        Iterator<Colaborador> it=this.getColaboradores().iterator();
+        while(it.hasNext()){
+            Colaborador col=it.next();
+            if(col.getEdad()<limiteEdad){
+                it.remove();
                 i++;
             }
         }

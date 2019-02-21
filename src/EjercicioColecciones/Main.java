@@ -1,3 +1,5 @@
+package EjercicioColecciones;
+
 import java.util.Scanner;
 public class Main {
     
@@ -26,7 +28,6 @@ public class Main {
         //Leer desde teclado un número que representa la cantidad de colaboradores que tendrá la empresa.
         byte cc=(byte)verificaNumero("Ingrese numero de colaboradores",1);
         
-        //Agregar algo para que el enter no salte al ingresar rut para que no se repita la linea
         //Leer desde teclado los datos de los colaboradores que se desea agregar a la empresa.
         for(int c=0;c<(int)cc;c++){
             System.out.println("Ingresar datos colaborador N"+(c+1)+":");
@@ -67,7 +68,6 @@ public class Main {
         }
         
         //Leer un rut desde teclado e intentar desvincular al colaborador
-        /*
         String rut=verificaString("Ingrese rut a desvincular");
         if(em.buscarPorRut(rut)){
             for(Colaborador uno:em.getColaboradores()){
@@ -77,14 +77,14 @@ public class Main {
             System.out.println("Colaborador despedido");
         }else{
             System.out.println("No existe el colaborador o ya fue despedido");
-        }*/
+        }
         
         //Mostrar la lista para verificar que se desvinculo
         System.out.println(em.obtenerListaColaboradores());
         
         //Leer desde teclado un limite de edad y desvincular mediante el motodo
-        byte ed=(byte)verificaNumero("Ingrese edad limite",-1);
-        em.desvincular(ed);
+        byte edad=(byte)verificaNumero("Ingrese edad limite",0);
+        System.out.println(em.desvincular(edad));
         
         //Mostrar la lista para verificar la desvinculacion
         System.out.println(em.obtenerListaColaboradores());

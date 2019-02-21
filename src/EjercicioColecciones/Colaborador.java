@@ -1,3 +1,5 @@
+package EjercicioColecciones;
+
 public class Colaborador {
     
     private String rut;
