@@ -54,48 +54,48 @@ public class Invernadero {
     }
     
     public Planta[][] separarTipos(Planta[] plantas){
-        Planta[] otra= new Planta[plantas.length];
+        String[] otra= new String[plantas.length];
+        
         for(int i = 0; i<plantas.length;i++){
-            otra[i]=plantas[i];
+            otra[i]=plantas[i].getTipodePlanta();
         }
         
         for(int i=0;i<otra.length;i++){
             for(int j=0;j<otra.length;j++){
                 if(i!=j){
-                    if(otra[i].getTipodePlanta().equalsIgnoreCase(otra[j].getTipodePlanta())){
-                        otra[j].setTipodePlanta("");
-                    }
+                    if(otra[i].equalsIgnoreCase(otra[j]))
+                        otra[j]=("");
                 }
             }
         }
+        
         int c=0;
-        for (Planta planta : otra) {
-            if (!planta.getTipodePlanta().equalsIgnoreCase("")) {
+        for (String x : otra) {
+            if (!x.equalsIgnoreCase(""))
                 c++;
-            }
         }
+        
         String[] tipo=new String[c];
         int co=0;
-        for (Planta planta : otra) {
-            if (!planta.getTipodePlanta().equalsIgnoreCase("")){
-                tipo[co]=planta.getTipodePlanta();
+        for (String x : otra) {
+            if (!x.equalsIgnoreCase("")){
+                tipo[co]=x;
                 co++;
             }
         }
+        
         Planta[][] tipos=new Planta[c][plantas.length];
-        Planta x= new Planta("",0,0,"");
         for(int i=0;i<c;i++){
             int con=0;
             for (Planta planta : plantas) {
-                if (tipo[i].equalsIgnoreCase(planta.getTipodePlanta())) {
+                if (planta.getTipodePlanta().equalsIgnoreCase(tipo[i])) {
                     tipos[i][con] = planta;
                     con++;
                 }
             }
-            for(int j=con;j<plantas.length;j++){
-                tipos[i][j]=x;
-            }
         }
+        
         return tipos;
+        
     }
 }

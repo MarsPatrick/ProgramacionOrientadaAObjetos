@@ -44,9 +44,7 @@ public class main {
         Planta[][] separar = g.separarTipos(plantas);
         for(int i=0;i<separar.length;i++){
             for(int j = 0;j<separar[0].length;j++){
-                if(separar[i][j].getNombre().isEmpty()){
-                    System.out.print(" [-] ");
-                }else{
+                if(separar[i][j]!=null){
                     System.out.print(" ["+separar[i][j].getNombre()+"] ");
                 }
             }
