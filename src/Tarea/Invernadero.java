@@ -4,8 +4,8 @@ public class Invernadero {
     
     public Planta buscarPlantaMasAlta(Planta[] plantas){
         Planta p = plantas[0];
-        for(int i=0;i<plantas.length;i++){
-            if(plantas[i].getAltura()>p.getAltura())
+        for(Planta x : plantas){
+            if(x.getAltura()>p.getAltura())
                 p=plantas[i];
         }
         return p;
@@ -13,8 +13,8 @@ public class Invernadero {
     
     public long consumoAguaTotal(Planta[] plantas){
         long contador=0;
-        for(int i = 0; i<plantas.length;i++)
-            contador +=plantas[i].getConsumoTotalAgua();
+        for(Planta x : plantas)
+            contador +=x.getConsumoTotalAgua();
         return contador;
     }
     
